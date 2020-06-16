@@ -100,7 +100,15 @@ public class MainProgram {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					if(!calculator.checkIfcorrect(argValue.getText(), Integer.parseInt(argSys.getText()))) {
-						new WrongArgumentPane();
+						new WrongArgumentValuePane();
+						return;
+					}
+					if(!calculator.checkSys(Integer.parseInt(argSys.getText()))) {
+						new WrongArgumentSysPane();
+						return;
+					}
+					if(!calculator.checkSys(Integer.parseInt(resultSys.getText()))) {
+						new WrongResultSysPane();
 						return;
 					}
 					resultValue.setText(calculator.convert(argValue.getText(), Integer.parseInt(argSys.getText()), Integer.parseInt(resultSys.getText())));

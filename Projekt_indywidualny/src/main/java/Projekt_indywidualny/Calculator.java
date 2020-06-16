@@ -12,6 +12,15 @@ public class Calculator {
 			}
 		return true;
 	}
+	
+	public boolean checkSys(int sys) {
+		if(sys > 1 && sys < 63) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	private long convertToDec(String value, int sys) throws UnknownCharacterException {
 		long result = 0;
 		int sign;
@@ -28,10 +37,10 @@ public class Calculator {
 			result = (int) sign - (int)'0';
 		}
 		else if((int) sign >= 'a' && (int) sign <= 'z'){
-			result = (int) sign - (int)'a';
+			result = (int) sign - (int)'a' + 36;
 		}
 		else if((int) sign >= 'A' && (int) sign <= 'Z'){
-			result = (int) sign - (int)'A';
+			result = (int) sign - (int)'A' + 10;
 		}
 		else {
 			throw new UnknownCharacterException("Sign out of range");
