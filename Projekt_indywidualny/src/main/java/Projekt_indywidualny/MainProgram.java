@@ -119,7 +119,10 @@ public class MainProgram {
 				}
 			}
 		});
-		
+		JLabel argText = new JLabel("Argument");
+		argText.setBounds(argValue.getX(), argValue.getY() - 20, 60, 20);
+		JLabel resultText = new JLabel("Result");
+		resultText.setBounds(resultValue.getX(), resultValue.getY() - 20, 40, 20);
 		frame.add(argValue);
 		frame.add(argSys);
 		frame.add(argSysText);
@@ -135,6 +138,8 @@ public class MainProgram {
 		frame.add(resultdec);
 		frame.add(resulthex);
 		frame.add(calculate);
+		frame.add(argText);
+		frame.add(resultText);
 		frame.setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);

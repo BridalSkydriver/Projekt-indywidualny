@@ -7,6 +7,6 @@ public class WrongArgumentValuePane {
 	JFrame f;  
 	WrongArgumentValuePane(){  
 	    f=new JFrame();  
-	    JOptionPane.showMessageDialog(f,"Given value is inconsistent with given numeric system","Alert",JOptionPane.WARNING_MESSAGE);     
+	    JOptionPane.showMessageDialog(f,"Given argument value is inconsistent with given numeric system","Alert",JOptionPane.WARNING_MESSAGE);     
 	} 
 }

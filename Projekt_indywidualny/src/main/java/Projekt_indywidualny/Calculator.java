@@ -51,6 +51,9 @@ public class Calculator {
 	
 	private String convertToSys(long value, int sys) throws UnknownCharacterException {
 		String result = "";
+		if(value == 0) {
+			return "0";
+		}
 		while(value > 0) {
 			result = this.codeSign(value%sys) + result;
 			value = value / sys;
