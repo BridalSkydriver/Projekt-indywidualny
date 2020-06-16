@@ -1,0 +1,28 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc} 
+\usepackage{graphicx}
+\usepackage {listings}
+\usepackage{verbatim}
+\title{%
+ Sprawozdanie Projekt Indywidualny \\
+  \large Program konwetujący różne systemy liczbowe}
+\author{Kamil Sibilski}
+\date{15.06.2020}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Wprowadzenie}
+Celem projektu było stworzenie aplikacji która będzie umożliwiała wygodne zamienianie liczb pomiędzy różnymi systemnami liczbowymi.\\
+Niestety komputer nie jest w stanie liczyć w naszym (dziesiętnym) systemie liczbowym. Zamiat tego używa systemu binarnego który wykożystuje tylko 2 znaki. Ze względu na małą liczbę znaków, liczby szybko się stają w tym systemie bardzo długie co utrudnia czytanie ich. Aby to rozwiązać komputer zamienia postać binarną na hexadecymalną, czyli szestastkową. Jest to o tyle wygodne, że bardzo łatwo jest koputerowi wykonywać zamiany pomięedzy tymi systemami a większa liczba znaków znacznie skraca długoć liczb co ułatwia czytanie ich. Na przykład adresy mac kart sieciowych komputer zapisuje w systemie binarnym ale wywietla w hexadecymalnym bo w pierwszym ma on długoć 48 zanków a w drugim tylko 12. Ze zwględu na te zamiany praca z komuterem na niskim poziomie programowania (sterowania procesorem, obsaługą pamięci ram, sterownikami) jest utrudniona bo musimy podawać komendy w tych systemach liczbowych kiedy my operujemy w systemie dziesiętnym. W wyższych warstwach, aby ułatwić kożystanie użytkowikowi, wartoci te są zamieniane na liczby dziesiętne lecz na niskich warstwach posiadanie programu/kalkulatora do zamian z naszego systemu liczbowego na "język komputera" jest niemalże niezbędne.\\
+Innym ciekawym zastosowaniem systemów liczbowych w informatyce jest ideksowanie rekordów w bazach danych. Aktualnie przy naszych nażedziach informatycznych jestemy w stanie tworzyć obromne bazy danych liczące miliony a nawet miliardy rekordów. Popularne jest aby wszystko indeksować od 1 i iteracyjne większać wartoć o 1, czyli pierwszy element ma indeks 1, drugi 2, trzeci 3 itd. Wtedy dokładnie widać ile mamy rekordów w bazie (wystaczy zobaczyć indeks ostatnio dodanego elementu) oraz jest to uporządkowane. Nientety ten system indeksowania posiada sporą wadę. Pozawla on w bardzo prosty sposób osobie z zewnątrz iterować po bazie danych i przez to ją pobrać całą, dotrzeć do elementów zastrzeżonych/ukrytych lub całkowicie ją zmienić np. za pomocąSQL injection. Rozwiązaniem tego problemu jest używanie większych systemów liczbowych. Jeżeli użyjemy systemu 62 znakowego i ciągu znaków o długoći np. 10 to będziemy mieli 839299365868340200 różnych indeksów. Taka iloć pozala na przypisanie każdemu rekordowi bazy losowej liczby indeksu. Dzięki temu każdy element bazy ma unikalny indeks a szansa na to że w bazie z milionem rekordów kto zgadnie index rekordu jest absurdalnie mała. Takie roziwiązanie zapobiega iterowaniu po bazie oraz utrudnia znacznie szukanie elementów prywatnych. Dzięki wyskoiemu systemowi liczbowemu możemy użyć tylko 10 znaków zamiast 18 co znacznie zmniejszy zużycie pamięci. Takie włanie rozwiązanie stosuje serwis YouTube. Wszystkie filmy na tym serwisie mają 11znakowy indeks w systemie 64 znakowym. Dzięki temu prawie niemożliwe jest dostanie się losowo na film który jest prywatny, czyli można go tylko odtworzyć znając włanie ten indeks.\\
+Teraz kiedy już wiemy dlaczego potzebne są różne systemy liczbowe, te duże i małe, przedźmy do aplikacji która ułatwia zamianę systemów likczbowych oraz pozwala na lepsze poznanie ich możliwoci.
+
+\section{Obsługa aplikacji}
+Aplikacja została napisana w języku Java oraz wyekspotrowana do pliku jre dlatego aby z niej kożystać potrzeba zainstalować Java RE. Po uruchomienu pojawia nam się ekran główny. Składa się on z dwóch częci, lewej odnoszącej się do wpisywanej przez nas wartoci do zamiany oraz prawej służacej do wywietlania wyniku. Obie częci mogą pracować na różnych systemach liczbowych co pozwana na zamianę dowolnego systemu na inny dowolny. Pod oknem do wpisywania znajdują się przyciski do szybkiego użycia. Zamienaiją one systemy liczbowe bez potrzeby wpisyania ich ręcznie. Na prawo od nich znajduje się małe okno do wpisywania ktore pokazuje aktualnie wybrany system liczbowy oraz pozwala na ręcznie wpisanie dowolnego systemu z zakresu od 2 do 62. Aby uzyskać wynik należy wprowadzić liczbę w okienku argument, następnie wybrać lub wpisać w jakim jest ona systemie(domylnie 10), na końcu wybrać w jakim systemie chcemy otrzymać wynik(domylnie 10) i potwiedzić przyciskiem calculate. Jeżeli co zostało błędnie wprowadzone, aplikacja wyswietli stosowny komunikat. Po tym wszystkim w okienku result powinein się pojawić wynik. Można go bez problemu kopiować. Wszystkie zmiany w trakcie liczenia, np gdybymy chcieli tylko zmienić wywietlany wynik z 10 na 16,  należy zatwierdzxać przyciskiem calculate
+\end{document}
