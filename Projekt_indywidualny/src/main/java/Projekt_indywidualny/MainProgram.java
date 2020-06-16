@@ -3,9 +3,60 @@
  */
 package Projekt_indywidualny;
 
+import java.awt.event.*;
+import javax.swing.*;
+
 public class MainProgram {
-	public static void main(String[] args){
-    	System.out.print("elo");
-        return;
-    }
+	public static void main(String[] args) {
+		int []resolution = {800, 500};
+		int marginx = 20;
+		int marginy = 20;
+		int textBoxLength = 150;
+		int textBoxHeight = 20;
+		int buttonHeight = 20;
+		int buttonLength = 90;
+		JFrame frame = new JFrame("Button Example");
+		frame.setSize(resolution[0], resolution[1]);
+		JPanel panel=new JPanel();  
+        panel.setBounds(marginx,marginy,200,200);
+		final JTextField tf = new JTextField();
+		tf.setBounds(marginx, marginy, textBoxLength, textBoxHeight);
+		JButton bin = new JButton("BIN");
+		bin.setBounds((int)tf.getAlignmentX(),marginy + (int) tf.getAlignmentY() + (int)tf.getHeight(), buttonHeight, buttonLength);
+		bin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tf.setText("Welcome to Javatpoint.");
+			}
+		});
+		JButton oct = new JButton("OCT");
+		oct.setBounds((int)tf.getAlignmentX() + buttonLength,marginy + (int) tf.getAlignmentY() + (int)tf.getHeight(), buttonHeight, buttonLength);
+		oct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tf.setText("Welcome to Javatpoint.");
+			}
+		});
+		JButton dec = new JButton("DEC");
+		bin.setBounds((int)tf.getAlignmentX() + buttonLength * 2,marginy + (int) tf.getAlignmentY() + (int)tf.getHeight(), buttonHeight, buttonLength);
+		bin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tf.setText("Welcome to Javatpoint.");
+			}
+		});
+		JButton hex = new JButton("HEX");
+		bin.setBounds((int)tf.getAlignmentX() + buttonLength * 3,marginy + (int) tf.getAlignmentY() + (int)tf.getHeight(), buttonHeight, buttonLength);
+		bin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tf.setText("Welcome to Javatpoint.");
+			}
+		});
+		panel.add(tf);
+		panel.add(bin);
+		panel.add(oct);
+		panel.add(dec);
+		panel.add(hex);
+		frame.add(panel);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		 
+	}
 }
